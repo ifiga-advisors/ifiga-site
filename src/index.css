@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Component classes live in dedicated CSS files (see styles/components.css)
+   so JSX uses clean semantic class names instead of long utility strings. */
+@import "./styles/components.css";
+
+/* Enable class-based dark mode: styles apply when <html> has .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------
+   IFIGA brand design tokens (see design.md §3 & §4)
+   These map to Tailwind utilities, e.g. bg-navy, text-gold, font-heading
+------------------------------------------------------------------- */
+@theme {
+  --color-navy: #16305f;
+  --color-navy-deep: #112b5c;
+  --color-green: #3c8034;
+  --color-green-soft: #eaf3e8;
+  --color-gold: #c6a24a;
+  --color-gold-soft: #f5eeda;
+  --color-ink: #1a2233;
+  --color-slate: #5b6472;
+  --color-mist: #f4f6fa;
+  --color-brand-border: #e3e7ee;
+
+  --font-heading: "Source Sans 3", "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 4px 20px rgba(22, 48, 95, 0.08);
+}
+
+/* Base defaults — wrapped in @layer base so Tailwind utilities
+   (e.g. text-white, text-slate) still override these element rules. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    line-height: 1.2;
+  }
+
+  /* ---- Dark mode base ---- */
+  .dark body {
+    background-color: #0b1424;
+    color: #cbd5e6;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4 {
+    color: #eef2f8;
+  }
+}

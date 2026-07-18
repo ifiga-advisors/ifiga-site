@@ -6,6 +6,7 @@ import { mainNavRoutes, ctaRoute } from "../../data/routes"
 import Container from "../ui/Container"
 import Button from "../ui/Button"
 import ThemeToggle from "../ui/ThemeToggle"
+import { assest } from "../../lib/asset"
 
 /**
  * Sticky top navigation. Links are generated from the shared `routes` array,
@@ -31,8 +32,8 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
       <Container className="navbar__inner">
         <Link to="/" className="navbar__brand" aria-label={`${company.name} — home`}>
-          <img src="/logo-mark.png" alt="" className="navbar__logo-mark" />
-          <img src="/logo-wordmark.png" alt={`${company.name} logo`} className="navbar__logo-wordmark" />
+          <img src= {assest("/logo-mark.png")} alt="" className="navbar__logo-mark" />
+          <img src= {assest("/logo-wordmark.png")} alt={`${company.name} logo`} className="navbar__logo-wordmark" />
         </Link>
 
         {/* Desktop navigation */}

@@ -5,6 +5,7 @@ import Button from "../components/ui/Button"
 import SectionHeading from "../components/ui/SectionHeading"
 import { company } from "../data/site"
 import { cta } from "../data/content/labels"
+import { assest } from "../lib/asset"
 
 type Pillar = { icon: LucideIcon; title: string; text: string }
 
@@ -36,7 +37,7 @@ export default function Home() {
           </div>
           <div className="hero__logo-wrap">
             <div className="hero__logo-card">
-              <img src="/logo.png" alt={`${company.name} logo`} className="w-72" />
+              <img src= {assest("/logo.png")} alt={`${company.name} logo`} className="w-72" />
             </div>
           </div>
         </Container>

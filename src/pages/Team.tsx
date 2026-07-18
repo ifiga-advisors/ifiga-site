@@ -3,6 +3,7 @@ import PageHero from "../components/layout/PageHero"
 import Container from "../components/ui/Container"
 import { pageHeaders } from "../data/content/labels"
 import { team, fullName } from "../data/content/team"
+import { assest } from "../lib/asset"
 
 export default function Team() {
   return (
@@ -47,7 +48,7 @@ export default function Team() {
 
                 {/* Photo */}
                 <div className="team-member__photo">
-                  <img src={member.photo} alt={name} loading="lazy" />
+                  <img src={assest(member.photo)} alt={name} loading="lazy" />
                 </div>
               </article>
             )

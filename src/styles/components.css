@@ -1,0 +1,418 @@
+/* ==========================================================================
+   IFIGA component styles
+   --------------------------------------------------------------------------
+   Semantic, reusable classes built on Tailwind via @apply. Components
+   reference these names (e.g. class="btn btn--primary") instead of carrying
+   long utility strings inline. Grouped by component; dark-mode handled here.
+   ========================================================================== */
+
+@layer components {
+  /* ---- Layout ---------------------------------------------------------- */
+  .site-container {
+    @apply mx-auto w-full max-w-[1200px] px-6 md:px-8;
+  }
+
+  .section {
+    @apply py-20;
+  }
+
+  .section--alt {
+    @apply bg-mist dark:bg-navy-deep;
+  }
+
+  .lead {
+    @apply text-lg leading-relaxed text-slate dark:text-white/70;
+  }
+
+  /* ---- Buttons --------------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3
+      text-base font-semibold transition-colors focus:outline-none
+      focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+  .btn--sm {
+    @apply px-4 py-2 text-sm;
+  }
+  .btn--block {
+    @apply w-full;
+  }
+  .btn--pill {
+    @apply rounded-full;
+  }
+  .btn--primary {
+    @apply bg-navy text-white hover:bg-navy-deep dark:bg-gold dark:text-navy dark:hover:brightness-95;
+  }
+  .btn--accent {
+    @apply bg-gold text-navy hover:brightness-95;
+  }
+  .btn--outline {
+    @apply border border-navy text-navy hover:bg-navy hover:text-white
+      dark:border-white/40 dark:text-white dark:hover:bg-white dark:hover:text-navy;
+  }
+  .btn--outline-light {
+    @apply border border-white/40 text-white hover:bg-white hover:text-navy;
+  }
+  .btn--ghost {
+    @apply text-navy hover:bg-mist dark:text-white;
+  }
+
+  /* ---- Section heading ------------------------------------------------- */
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-wider text-green;
+  }
+  .section-heading {
+    @apply mt-2 text-3xl font-bold md:text-4xl;
+  }
+  .section-heading__rule {
+    @apply mt-3 h-1 w-16 rounded-full bg-gold;
+  }
+  .section-heading--center {
+    @apply text-center;
+  }
+  .section-heading--center .section-heading__rule {
+    @apply mx-auto;
+  }
+
+  /* ---- Icon buttons (theme toggle, hamburger) -------------------------- */
+  .icon-toggle {
+    @apply flex h-9 w-9 items-center justify-center rounded-full border
+      border-brand-border bg-white text-navy transition-colors hover:bg-mist
+      dark:border-white/20 dark:bg-white/5 dark:text-gold dark:hover:bg-white/10;
+  }
+  .icon-btn {
+    @apply rounded-lg p-2 text-navy dark:text-white;
+  }
+
+  /* ---- Navbar ---------------------------------------------------------- */
+  .navbar {
+    @apply sticky top-0 z-50 bg-white transition-shadow dark:bg-navy-deep;
+  }
+  .navbar--scrolled {
+    @apply shadow-soft;
+  }
+  .navbar__inner {
+    @apply flex h-24 items-center justify-between;
+  }
+  .navbar__brand {
+    @apply flex items-center dark:rounded-lg dark:bg-white dark:px-2 dark:py-1;
+  }
+  .navbar__logo-mark {
+    @apply h-16 w-auto;
+  }
+  .navbar__logo-wordmark {
+    @apply -ml-3 h-14 w-auto;
+  }
+  .nav {
+    @apply hidden items-center gap-8 lg:flex;
+  }
+  .nav-link {
+    @apply text-base font-semibold text-slate transition-colors hover:text-navy
+      dark:text-white/70 dark:hover:text-white;
+  }
+  .nav-link.is-active {
+    @apply text-navy dark:text-white;
+  }
+  .navbar__mobile {
+    @apply flex items-center gap-1 lg:hidden;
+  }
+  .mobile-menu {
+    @apply border-t border-brand-border bg-white lg:hidden dark:border-white/10 dark:bg-navy-deep;
+  }
+  .mobile-menu__inner {
+    @apply flex flex-col gap-1 py-4;
+  }
+  .mobile-link {
+    @apply rounded-lg px-3 py-2 text-slate hover:bg-mist dark:text-white/80 dark:hover:bg-white/10;
+  }
+
+  /* ---- Page hero (inner pages) ----------------------------------------- */
+  .page-hero {
+    @apply bg-gradient-to-br from-navy to-navy-deep py-20 text-white;
+  }
+  .page-hero__title {
+    @apply text-5xl font-bold text-white md:text-6xl lg:text-7xl;
+  }
+  .page-hero__subtitle {
+    @apply mt-4 max-w-2xl text-lg text-white/80;
+  }
+
+  /* ---- Home hero ------------------------------------------------------- */
+  .hero {
+    @apply bg-gradient-to-br from-navy to-navy-deep text-white;
+  }
+  .hero__inner {
+    @apply grid items-center gap-10 py-24 lg:grid-cols-2;
+  }
+  .hero__eyebrow {
+    @apply text-sm font-semibold uppercase tracking-wider text-gold;
+  }
+  .hero__title {
+    @apply mt-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl;
+  }
+  .hero__text {
+    @apply mt-6 max-w-xl text-lg text-white/80;
+  }
+  .hero__actions {
+    @apply mt-8 flex flex-wrap gap-4;
+  }
+  .hero__logo-wrap {
+    @apply hidden justify-center lg:flex;
+  }
+  .hero__logo-card {
+    @apply rounded-2xl bg-white p-8 shadow-soft;
+  }
+
+  /* ---- Feature / value cards ------------------------------------------- */
+  .feature-grid {
+    @apply mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4;
+  }
+  .card {
+    @apply rounded-xl border border-brand-border bg-white p-6 shadow-soft dark:border-white/10 dark:bg-navy-deep;
+  }
+  .card--hover {
+    @apply transition-transform hover:-translate-y-1;
+  }
+  .feature-icon {
+    @apply flex h-12 w-12 items-center justify-center rounded-full bg-green-soft text-green;
+  }
+  .card__title {
+    @apply mt-4 text-xl font-semibold;
+  }
+  .card__text {
+    @apply mt-2 text-sm text-slate dark:text-white/70;
+  }
+
+  /* ---- Simple CTA band ------------------------------------------------- */
+  .cta-band {
+    @apply flex flex-col items-center gap-6 text-center;
+  }
+
+  /* ---- Services list --------------------------------------------------- */
+  .services-grid {
+    @apply mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+  .service-card {
+    @apply flex flex-col rounded-xl border border-brand-border bg-white p-6 shadow-soft dark:border-white/10 dark:bg-navy-deep;
+  }
+  .service-card__num {
+    @apply mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-navy text-sm font-bold text-white dark:bg-gold dark:text-navy;
+  }
+  .service-card__title {
+    @apply text-lg font-semibold;
+  }
+  .service-card__text {
+    @apply mt-2 text-sm leading-relaxed text-slate dark:text-white/70;
+  }
+
+  /* ---- About page ------------------------------------------------------ */
+  .vm-grid {
+    @apply mt-12 grid gap-6 md:grid-cols-2;
+  }
+  .vm-card {
+    @apply rounded-xl border border-brand-border bg-white p-8 shadow-soft dark:border-white/10 dark:bg-navy-deep;
+  }
+  .vm-card__label {
+    @apply text-sm font-semibold uppercase tracking-wider text-gold;
+  }
+  .vm-card__text {
+    @apply mt-3 text-lg leading-relaxed text-ink dark:text-white/80;
+  }
+  .values-grid {
+    @apply mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  .value-card__title {
+    @apply text-lg font-semibold text-navy dark:text-white;
+  }
+  .value-card__text {
+    @apply mt-2 text-sm leading-relaxed text-slate dark:text-white/70;
+  }
+  .client-list {
+    @apply mt-12 grid gap-6 md:grid-cols-2;
+  }
+
+  /* ---- FAQ accordion (editorial, hairline dividers) -------------------- */
+  .faq-list {
+    @apply mt-12 border-t border-brand-border dark:border-white/10;
+  }
+  .faq-item {
+    @apply border-b border-brand-border dark:border-white/10;
+  }
+  .faq-question {
+    @apply flex w-full items-center justify-between gap-6 py-6 text-left
+      text-lg font-semibold text-navy transition-colors hover:text-green
+      dark:text-white dark:hover:text-gold;
+  }
+  .faq-icon {
+    @apply shrink-0 text-gold transition-transform duration-200;
+  }
+  .faq-icon--open {
+    @apply rotate-45;
+  }
+  .faq-answer {
+    @apply max-h-0 overflow-hidden pr-10 text-slate transition-all duration-300 ease-in-out dark:text-white/70;
+  }
+  .faq-answer--open {
+    @apply max-h-96;
+  }
+  .faq-answer__inner {
+    @apply pb-6 leading-relaxed;
+  }
+
+  /* ---- Team page ------------------------------------------------------- */
+  .team-member {
+    @apply grid items-center gap-10 py-12 lg:grid-cols-2;
+  }
+  .team-member + .team-member {
+    @apply border-t border-brand-border dark:border-white/10;
+  }
+  /* Alternating layout: even rows put the photo on the right (default),
+     odd rows flip it to the left on large screens. */
+  .team-member--photo-left .team-member__photo {
+    @apply lg:order-first;
+  }
+  .team-member__name {
+    @apply text-3xl font-bold md:text-4xl;
+  }
+  .team-member__role {
+    @apply mt-1 text-lg text-slate dark:text-white/70;
+  }
+  .team-member__phone {
+    @apply mt-2 inline-flex items-center gap-2 text-slate transition-colors hover:text-navy dark:text-white/70 dark:hover:text-white;
+  }
+  .team-member__creds {
+    @apply mt-6 space-y-2;
+  }
+  .team-member__cred {
+    @apply text-base font-bold text-ink dark:text-white;
+  }
+  .team-member__bio {
+    @apply mt-6 space-y-4 leading-relaxed text-slate dark:text-white/70;
+  }
+  .team-member__photo {
+    @apply overflow-hidden rounded-xl border border-brand-border dark:border-white/10;
+  }
+  .team-member__photo img {
+    @apply h-full w-full object-cover;
+  }
+
+  /* ---- Contact page + form -------------------------------------------- */
+  .contact-intro {
+    @apply max-w-3xl text-lg leading-relaxed text-slate dark:text-white/70;
+  }
+  .contact-quick {
+    @apply mt-8 flex flex-wrap gap-4;
+  }
+  .quick-action {
+    @apply flex items-center gap-3 rounded-xl border border-brand-border bg-white px-5 py-4
+      text-navy transition-colors hover:border-navy dark:border-white/10 dark:bg-navy-deep dark:text-white;
+  }
+  .quick-action__icon {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white;
+  }
+  .quick-action__icon--wa {
+    @apply bg-green;
+  }
+  .quick-action__icon--email {
+    @apply bg-navy dark:bg-gold dark:text-navy;
+  }
+  .quick-action__label {
+    @apply text-sm font-semibold;
+  }
+  .quick-action__value {
+    @apply block text-xs font-normal text-slate dark:text-white/60;
+  }
+
+  .contact-grid {
+    @apply mt-12 grid gap-12 lg:grid-cols-2;
+  }
+  .form {
+    @apply mt-6 flex flex-col gap-5;
+  }
+  .form-row {
+    @apply grid gap-5 sm:grid-cols-2;
+  }
+  .form-field {
+    @apply flex flex-col gap-2;
+  }
+  .form-label {
+    @apply text-sm font-semibold text-navy dark:text-white;
+  }
+  .form-required {
+    @apply font-normal text-slate dark:text-white/50;
+  }
+  .form-input,
+  .form-textarea {
+    @apply w-full rounded-lg border border-brand-border bg-white px-4 py-3 text-ink
+      transition-colors placeholder:text-slate/60 focus:border-navy focus:outline-none
+      focus:ring-2 focus:ring-gold/40 dark:border-white/15 dark:bg-navy-deep dark:text-white;
+  }
+  .form-textarea {
+    @apply min-h-36 resize-y;
+  }
+
+  .find-us__address {
+    @apply mt-6 not-italic leading-relaxed text-slate dark:text-white/70;
+  }
+  .map-embed {
+    @apply mt-6 aspect-[4/3] w-full overflow-hidden rounded-xl border border-brand-border dark:border-white/10;
+  }
+  .map-embed iframe {
+    @apply h-full w-full;
+  }
+
+  /* ---- Footer (editorial) ---------------------------------------------- */
+  .site-footer {
+    @apply mt-24 bg-navy-deep text-white/70;
+  }
+  .footer-cta {
+    @apply flex flex-col items-start gap-6 py-16 md:flex-row md:items-center md:justify-between;
+  }
+  .footer-cta__title {
+    @apply text-2xl font-normal text-white md:whitespace-nowrap;
+  }
+  .footer-divider {
+    @apply border-t border-white/15;
+  }
+  .footer-main {
+    @apply grid items-start gap-10 py-14 md:grid-cols-[auto_1fr_auto];
+  }
+  .footer-contact {
+    @apply flex flex-col gap-4;
+  }
+  .footer-contact-item {
+    @apply flex items-center gap-3 text-white/80 transition-colors hover:text-white;
+  }
+  .footer-contact-badge {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white ring-1 ring-white/15;
+  }
+  .footer-contact-badge--green {
+    @apply bg-green;
+  }
+  .footer-contact-badge--navy {
+    @apply bg-navy;
+  }
+  .footer-info__title {
+    @apply font-semibold text-white md:whitespace-nowrap;
+  }
+  .footer-info__text {
+    @apply mt-2 text-white/60 md:whitespace-nowrap;
+  }
+  .footer-info__hours {
+    @apply mt-3 text-sm text-white/70 md:whitespace-nowrap;
+  }
+  .footer-socials {
+    @apply flex items-center gap-6 md:justify-end;
+  }
+  .footer-social-link {
+    @apply text-white transition-colors hover:text-gold;
+  }
+  .footer-bottom {
+    @apply py-8;
+  }
+  .footer-copy {
+    @apply text-sm text-white/60;
+  }
+  .footer-legal {
+    @apply mt-3 max-w-4xl text-xs leading-relaxed text-white/40;
+  }
+}
